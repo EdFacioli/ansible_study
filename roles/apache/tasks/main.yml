@@ -1,0 +1,8 @@
+- name: Import.tasks
+  include_tasks: "{{ ansible_facts['distribution']}}.yml"
+
+- name: Criar index.html
+  ansible.builtin.template:
+    src: index.html.j2
+    dest: /var/www/html/index.html
+    mode: '0644'

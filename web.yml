@@ -1,0 +1,12 @@
+- name: web
+  hosts: web
+  become: true
+  vars_files:
+    - secrets.yml
+  roles:
+    - apache
+
+  tasks:
+  - name: secrets
+    ansible.builtin.debug:
+      msg: "{{senha}}"
